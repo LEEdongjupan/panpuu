@@ -21,6 +21,14 @@ public class HelloServiceTests {
 	@Setter(onMethod_= @Autowired)
 	private HelloService service;
 	
+	@Autowired
+	private Restaurant restaurant;
+	
+	@Test
+	public void testchef() {
+		restaurant.order();
+	}
+	
 	@Test
 	public void testExist() {
 		log.info(service);
