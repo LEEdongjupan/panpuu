@@ -14,7 +14,14 @@
 		</bean>
 	2.5버전이전	 -->
 	
-	
+	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
+<property name="driverClassName"
+value="oracle.jdbc.driver.OracleDriver"></property>
+<property name="jdbcUrl"
+value="jdbc:oracle:thin:@localhost:1521:XE"></property>
+<property name="username" value="book_ex"></property>
+<property name="password" value="book_ex"></property>
+</bean> 
 	
 	
 		<context:component-scan base-package="org.zerock.service"></context:component-scan>
