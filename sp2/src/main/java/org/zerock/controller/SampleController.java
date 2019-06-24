@@ -27,6 +27,7 @@ public class SampleController {
 	@GetMapping("/ex1")
 	public void doA(SampleDTO dto) {
 		
+		
 	log.info(dto);
 	}
 	
