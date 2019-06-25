@@ -1,18 +1,16 @@
 package org.zerock.controller;
 
 
-import java.text.SimpleDateFormat;
 import java.util.Arrays;
 
-import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.WebDataBinder;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.zerock.domain.SampleDTO;
 import org.zerock.domain.SampleDTOList;
 import org.zerock.domain.TodoDTO;
@@ -67,6 +65,30 @@ public class SampleController {
 	@GetMapping("/ex6")
 	public void ex6(TodoDTO todo) {
 		log.info(todo);
+	}
+	@GetMapping("/ex7")
+	public String ex7(SampleDTO dto,@ModelAttribute("page") int page, Model model) {
+		
+		log.info("ex7");
+		log.info(dto);
+		log.info(page);
+		
+		model.addAttribute("result","SUCCESS");
+		
+		return "/sample/ex7";
+	}
+	
+	@GetMapping("/ex8")
+	public String ex8(RedirectAttributes rttr) {
+		log.info("ex8");
+		
+		rttr.addFlashAttribute("result" , "SUCCESS");
+		//한번만 전해줄떄씀.
+		return "redirect:/sample/ex9";
+	}
+	@GetMapping("/ex9")
+	public void ex9() {
+		log.info("ex9");
 	}
 	
 }
