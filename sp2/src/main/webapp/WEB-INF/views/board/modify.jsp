@@ -20,6 +20,8 @@
 			<input type="hidden" name="bno" value="${cri.bno}">
 			<input type="hidden" name="page" value="${cri.page}"> 
 			<input type="hidden" name="amount" value="${cri.amount}">
+			<input type="hidden" name="type" value="${cri.type}">
+			<input type="hidden" name="keyword" value="${cri.keyword}">
 			<div class="form-group row">
 				<input type="text" name="bno" class="form-control form-control-user"
 					placeholder="bno" value='<c:out value="${vo.bno}"/>'
@@ -51,7 +53,7 @@
 
 
 
-			<a href="/board/list" class="btn btn-secondary"> Go to list </a>
+			<button class="btn btn-secondary listBtn"> Go to list </button>
 		</div>
 
 	</div>
@@ -59,6 +61,14 @@
 </div>
 
 <script>
+$(".listBtn").on("click",function(e){
+	var formObj = $("#form1");
+	formObj
+	.attr("action","/board/list")
+	.attr("method","get")
+	.submit();
+});
+
 $('.btn-danger').on("click", function () {
 	console.log("clikkkkkk");
 	
