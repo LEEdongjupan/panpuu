@@ -1,9 +1,13 @@
 package org.zerock.controller;
 
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +26,22 @@ import lombok.extern.log4j.Log4j;
 public class ReplyController {
 
 	private ReplyService service;
+	
+	@GetMapping("/{rno}")
+	public ResponseEntity<ReplyVO> get(@PathVariable("rno") Integer rno){
+		
+		log.info("rno:"+rno);
+		
+		return new ResponseEntity<>(service.get(rno),HttpStatus.OK);
+	}
+	
+	@GetMapping("/{bno}/{page}")
+	public ResponseEntity<List<ReplyVO>> getList(
+			@PathVariable( name = "bno") Integer bno,
+			@PathVariable( name = "page") Integer page
+			){
+		return new ResponseEntity<>(service.getSimpleList(bno),HttpStatus.OK);
+	}
 	
 	@PostMapping(value = "/new", consumes = "application/json;charset=UTF-8",
 			produces = MediaType.TEXT_PLAIN_VALUE)

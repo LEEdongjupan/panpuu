@@ -25,7 +25,7 @@ public class ReplyServiceImpl implements ReplyService {
 	@Override
 	public ReplyVO get(Integer key) {
 		// TODO Auto-generated method stub
-		return null;
+		return mapper.select(key);
 	}
 
 	@Override
@@ -50,6 +50,12 @@ public class ReplyServiceImpl implements ReplyService {
 	public int getListCount(Criteria cri) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public List<ReplyVO> getSimpleList(Integer bno) {
+		// TODO Auto-generated method stub
+		return mapper.list(bno);
 	}
 
 }
