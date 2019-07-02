@@ -8,4 +8,6 @@ public interface ReplyService extends GenericService<ReplyVO, Integer> {
 
 	public List<ReplyVO> getSimpleList(Integer bno);	
 	
+	public void addTest(String str);
+	
 }
