@@ -39,8 +39,8 @@ public class ReplyServiceImpl implements ReplyService {
 
 	@Override
 	public int modify(ReplyVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return mapper.update(vo);
 	}
 
 	@Override

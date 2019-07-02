@@ -143,7 +143,7 @@ display:none;
 		actionForm.attr("action","/board/list").submit();
 	});
 	
-
+	
     $(".replyBtn").on("click",function (e) {
       let obj = {
           bno:$("input[name='bno']").val(),
@@ -168,6 +168,18 @@ display:none;
     		showPage();
     	})
      });	
+     
+     $(".modifyBtn").on("click",function(e){
+    	 
+     	var vo = {rno:$("input[name='rno']").val(),
+     			reply:$("input[name='reply']").val()}
+     	replyService.updateReply(vo,function(){
+     		alert("수정성공");
+     		$("#replyModal").modal('hide');
+    		showPage();
+     		
+     	})
+      });	
     
  	 function showPage(){
         replyList.html("");

@@ -8,6 +8,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.zerock.domain.BoardVO;
 import org.zerock.domain.ReplyVO;
 import org.zerock.service.ReplyService;
 
@@ -36,6 +37,7 @@ public class ReplyMapperTests {
 		mapper.list(14557).forEach(vo-> log.info(vo));
 	}
 	
+	
 	@Test
 	public void testInsert() {
 		
@@ -47,6 +49,15 @@ public class ReplyMapperTests {
 			mapper.insert(vo);
 		});
 		}
+	
+	@Test
+	public void testpdate() {
+		
+		ReplyVO vo = mapper.select(5);
+		vo.setReply("수정된 s내뇽");
+		mapper.update(vo);
+		
+	}
 		
 	}
 	

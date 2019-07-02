@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 import org.zerock.domain.ReplyVO;
 
 public interface ReplyMapper {
@@ -26,4 +27,7 @@ public interface ReplyMapper {
 	
 	@Insert("insert into tbl_s2 (col2) values (#{str})")
 	public void insert2(@Param("str") String str);
+	
+	@Update("update tbl_reply set reply = #{reply} where rno = #{rno}")
+	public int update(ReplyVO vo);
 }

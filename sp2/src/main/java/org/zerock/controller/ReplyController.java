@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -59,6 +60,15 @@ public class ReplyController {
 		
 		log.info(vo);
 		service.register(vo);
+		return new ResponseEntity<>("success",HttpStatus.OK);
+		
+	}
+	
+	@PutMapping(value = "/modify", consumes = "application/json;charset=UTF-8",
+			produces = MediaType.TEXT_PLAIN_VALUE)
+	public ResponseEntity<String> modify(@RequestBody ReplyVO vo){
+		
+		service.modify(vo);
 		return new ResponseEntity<>("success",HttpStatus.OK);
 		
 	}
