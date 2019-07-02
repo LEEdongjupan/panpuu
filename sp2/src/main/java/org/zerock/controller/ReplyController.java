@@ -31,6 +31,8 @@ public class ReplyController {
 	@DeleteMapping("/{rno}")
 	public ResponseEntity<String> remove(@PathVariable("rno") Integer rno){
 		
+		service.remove(rno);
+		
 		return new ResponseEntity<>("success",HttpStatus.OK);
 	}
 	

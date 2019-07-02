@@ -162,7 +162,11 @@ display:none;
     	 
     	var rno = $("input[name='rno']").val();
 
-    	alert(rno);
+    	replyService.removeReply(rno,function(){
+    		alert("removede");
+    		$("#replyModal").modal('hide');
+    		showPage();
+    	})
      });	
     
  	 function showPage(){
