@@ -82,8 +82,8 @@
                 </button>
             </div>
             <div class="modal-body">
-                <input type="text" class="form-control mnbo"  value="${cri.bno}" readonly="readonly">
-                
+                <input type="text" class="form-control mbno"  name="bno" value="${cri.bno}" readonly="readonly">
+                <input type="text" class="form-control mrno"  name="rno"value="" readonly="readonly">
                 <input type="text" class="form-control"name="reply" value="samplegl">
                 <input type="text" class="form-control"name="replyer" value="sampleer">
             </div>
@@ -116,7 +116,7 @@ display:none;
 	replyList.on("click","li",function(){
 		var rno = $(this).attr("data-rno")
 		replyService.getReply(rno,function(reply){
-			$(".mbno").val(reply.rno);
+			$(".mrno").val(reply.rno);
 	          $("input[name='reply']").val(reply.reply);
 	          $("input[name='replyer']").val(reply.replyer);
 	          $("#replyModal").modal('show');
@@ -158,6 +158,13 @@ display:none;
     	  })
 	  });
 	
+     $(".deleteBtn").on("click",function(e){
+    	 
+    	var rno = $("input[name='rno']").val();
+
+    	alert(rno);
+     });	
+    
  	 function showPage(){
         replyList.html("");
         replyService.getList(bno,function (arr) {

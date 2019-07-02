@@ -5,6 +5,19 @@ var replyService = (function replyService() {
     function countUp() {
         return ++idx;
     }
+    
+    function removeReply(rno,callback) {
+    	 $.ajax({
+             type:"delete",
+             url:host+rno,
+             success: function () {
+                 if(callback){
+                     callback();
+                 }
+             }
+         })
+	}
+    
     function addReply(obj,callback) {
         $.ajax({
             type:"post",
@@ -27,6 +40,7 @@ var replyService = (function replyService() {
     }
     return{
     	getReply:getReply,
+    	removeReply:removeReply,
         getList:getList,
         countUp:countUp,
         addReply:addReply

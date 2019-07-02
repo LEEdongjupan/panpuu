@@ -37,7 +37,7 @@ public class ReplyServiceImpl implements ReplyService {
 	@Override
 	public int remove(Integer key) {
 		// TODO Auto-generated method stub
-		return 0;
+		return mapper.delete(key);
 	}
 
 	@Override
