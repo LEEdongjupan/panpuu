@@ -1,28 +1,64 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-	<form action="/board/register" method="post">
-		<div>
-			<label>title</label> <input type="text" name="title" value="한글제목">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<%@include file="../includes/header.jsp"%>
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+	<!-- Page Heading -->
+	<h1 class="h3 mb-4 text-gray-800">board Register Page</h1>
+
+	<!-- DataTales Example -->
+	<div class="card shadow mb-4">
+		<div class="card-header py-3">
+			<h6 class="m-0 font-weight-bold text-primary">register</h6>
 		</div>
-		<div>
-			<label>content</label> <input type="text" name="content" value="한글내용">
+		<div class="card-body">
+			<form class="user" action="/board/register" method="post">
+				<div class="form-group row">
+
+					<input type="text" name="title"
+						class="form-control form-control-user" placeholder="title">
+				</div>
+				<div class="form-group row">
+
+					<input type="text" name="content"
+						class="form-control form-control-user" placeholder="content">
+				</div>
+				<div class="form-group row">
+
+					<input type="text" name="writer"
+						class="form-control form-control-user" placeholder="writer">
+				</div>
+
+				<button class="btn btn-primary">Submit</button>
+
+				<hr>
+
+
+			</form>
+
+			<a href="/board/list" class="btn btn-secondary"> Go to list </a>
 		</div>
-		<div>
-			<label>writer</label> <input type="text" name="writer" value="user00">
-		</div>
-		<div>
-			<input type="reset">
-			 <input type="submit">
-			 <a herf="/board/list">목록가기</a>
-		</div>
-	</form>
+
+	</div>
+	<!-- /.container-fluid -->
+
+</div>
+<!-- End of Main Content -->
+
+<script>
+	var flag = '${result}';
+
+	if (flag === 'success') {
+		alert("작업이 성공했습니다.");
+	}
+</script>
+
+<%@include file="../includes/footer.jsp"%>
+
 
 
 </body>
