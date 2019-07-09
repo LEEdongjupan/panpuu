@@ -24,5 +24,12 @@
 	<context:component-scan base-package="org.zerock.controller" />
 	
 	
+<<<<<<< HEAD
+=======
+  <beans:bean id="multipartResolver"
+    class="org.springframework.web.multipart.support.StandardServletMultipartResolver">
+ </beans:bean>
+	
+>>>>>>> refs/remotes/origin/master
 	
 </beans:beans>

@@ -34,7 +34,11 @@
 
 	<!-- Root Logger -->
 	<root>
+<<<<<<< HEAD
 		<priority value="info" />
+=======
+		<priority value="debug" />
+>>>>>>> refs/remotes/origin/master
 		<appender-ref ref="console" />
 	</root>
 	

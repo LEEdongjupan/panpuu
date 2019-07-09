@@ -17,6 +17,7 @@
 		</div>
 		<div class="card-body">
 		<form id='form1'>
+<<<<<<< HEAD
 			<div class="form-group row">
 				<input type="text" name="bno" class="form-control form-control-user"
 					placeholder="bno" value='<c:out value="${vo.bno}"/>'
@@ -56,6 +57,60 @@
 </div>
 
 <script>
+=======
+			<input type="hidden" name="bno" value="${cri.bno}">
+			<input type="hidden" name="page" value="${cri.page}"> 
+			<input type="hidden" name="amount" value="${cri.amount}">
+			<input type="hidden" name="type" value="${cri.type}">
+			<input type="hidden" name="keyword" value="${cri.keyword}">
+			<div class="form-group row">
+				<input type="text" name="bno" class="form-control form-control-user"
+					placeholder="bno" value='<c:out value="${vo.bno}"/>'
+					readonly="readonly">>
+			</div>
+
+			<div class="form-group row">
+				<input type="text" name="title"
+					class="form-control form-control-user" placeholder="title"
+					value='<c:out value="${vo.title}"/>'>
+			</div>
+			<div class="form-group row">
+				<input type="text" name="content"
+					class="form-control form-control-user" placeholder="content"
+					value='<c:out value="${vo.content}"/>' >
+			</div>
+			<div class="form-group row">
+
+				<input type="text" name="writer"
+					class="form-control form-control-user" placeholder="writer"
+					value='<c:out value="${vo.writer}"/>' readonly="readonly">
+			</div>
+			</form>
+			<button class="btn btn-danger">Delete</button>
+			
+			<button class="btn btn-warning">Modify</button>
+
+			<hr>
+
+
+
+			<button class="btn btn-secondary listBtn"> Go to list </button>
+		</div>
+
+	</div>
+
+</div>
+
+<script>
+$(".listBtn").on("click",function(e){
+	var formObj = $("#form1");
+	formObj
+	.attr("action","/board/list")
+	.attr("method","get")
+	.submit();
+});
+
+>>>>>>> refs/remotes/origin/master
 $('.btn-danger').on("click", function () {
 	console.log("clikkkkkk");
 	
